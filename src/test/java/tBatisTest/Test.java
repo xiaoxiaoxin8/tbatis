@@ -1,6 +1,9 @@
 package tBatisTest;
 
-import org.junit.Before;
+import config.TConfiguration;
+import executor.TExecutor;
+import mapper.BlogMapper;
+import session.TSqlSession;
 
 /**
  * @program: tbatis
@@ -10,17 +13,10 @@ import org.junit.Before;
  **/
 public class Test {
 
-    @Before
-    public void loadConfig(){
-
-    }
-
-    @org.junit.Test
-    public void testSelect(){
-        //获取sqlSession
-        /*TSqlSession session = SqlSessionFactory.openSession();
-        BlogMapper mapper = session.getMapper(BlogMapper.class);
-        Blog blog = mapper.selectBlogById(1);*/
+    public static void main(String[] args) {
+        TSqlSession tSqlSession = new TSqlSession(new TConfiguration(),new TExecutor());
+        BlogMapper blogMapper = tSqlSession.getMapper(BlogMapper.class);
+        blogMapper.selectBlogById(1);
     }
 
 

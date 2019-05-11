@@ -1,3 +1,5 @@
+package session;
+
 /**
  * @program: tbatis
  * @description: sqlsession工厂
